@@ -34,7 +34,7 @@ public class LyricController : ControllerBase
 
             _logger.LogInformation($"Searched lyric at {file}");
 
-            text = System.IO.File.ReadAllText(file);
+            text = string.Join(Environment.NewLine, System.IO.File.ReadAllLines(file));;
         }
 
         var a = new
