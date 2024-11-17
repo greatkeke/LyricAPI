@@ -6,8 +6,7 @@ namespace LyricAPI.Controllers;
 [Route("[controller]")]
 public class LyricController : ControllerBase
 {
-    // private readonly string _lyricsFolder = @"/lyrics";
-    private readonly string _lyricsFolder = @"smb://HTPCNAS._smb._tcp.local/Media/CloudMusic";
+    private readonly string _lyricsFolder = @"/lyrics";
     private readonly ILogger<LyricController> _logger;
 
     public LyricController(ILogger<LyricController> logger)
