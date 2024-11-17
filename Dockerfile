@@ -9,5 +9,9 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
+VOLUME ["/lyrics"]
 ENV ASPNETCORE_URLS=http://*:80
-CMD dotnet LyricAPI.dll
+ENV ASPNETCORE_HTTP_PORTS=80
+
+EXPOSE ${ASPNETCORE_HTTP_PORTS}
+CMD ./LyricAPI
