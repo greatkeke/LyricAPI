@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LyricAPI.Controllers;
@@ -33,7 +34,7 @@ public class LyricController : ControllerBase
 
             _logger.LogInformation($"Searched lyric at {file}");
 
-            text = string.Join(Environment.NewLine, System.IO.File.ReadAllLines(file));;
+            text = System.IO.File.ReadAllText(file, Encoding.UTF8);
         }
 
         var a = new
