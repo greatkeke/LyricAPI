@@ -6,7 +6,7 @@ namespace LyricAPI.Controllers;
 [Route("[controller]")]
 public class LyricController : ControllerBase
 {
-
+    private readonly string _lyricsFolder = @"/lyrics";
     private readonly ILogger<LyricController> _logger;
 
     public LyricController(ILogger<LyricController> logger)
@@ -19,7 +19,7 @@ public class LyricController : ControllerBase
     {
         _logger.LogInformation($"api is called, title={title}, artist={artist}, path={path}");
 
-        var location = Path.GetDirectoryName(path);
+        var location = _lyricsFolder; //Path.GetDirectoryName(path);
 
         _logger.LogInformation($"Try get lyric at {location}");
 
